@@ -21,4 +21,16 @@ class LinkedList {
   get tail() {
     return this.#tail;
   }
+
+  push(value) {
+    const node = new Node(value);
+    if (!this.#size) {
+      this.#head = this.#tail = node;
+    } else {
+      this.#tail.next = node;
+      this.#tail = node;
+    }
+    ++this.#size;
+    return this.#size;
+  }
 }
