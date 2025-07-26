@@ -98,4 +98,13 @@ class LinkedList {
     }
     return false;
   }
+
+  find(value) {
+    let node = this.#head;
+    for (let i = 0; i < this.#size; ++i) {
+      if (node.value === value) return i;
+      node = node.next;
+    }
+    return null;
+  }
 }
