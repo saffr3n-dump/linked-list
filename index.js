@@ -121,6 +121,23 @@ class LinkedList {
     return ++this.#size;
   }
 
+  removeAt(index) {
+    if (index < 0 || index >= this.#size) {
+      throw new RangeError('Provided index is out of list bounds');
+    }
+    --this.#size;
+    if (index === 0) {
+      const node = this.#head;
+      this.#head = node.next;
+      return node;
+    }
+    const parent = this.at(index - 1);
+    const node = parent.next;
+    const child = node.next;
+    parent.next = child;
+    return node;
+  }
+
   toString() {
     let output = '';
     let node = this.#head;
