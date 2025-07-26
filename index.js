@@ -10,6 +10,13 @@ class LinkedList {
   #head = null;
   #tail = null;
 
+  constructor(...values) {
+    if (!values.length) return;
+    for (const value of values) {
+      this.push(value);
+    }
+  }
+
   get size() {
     return this.#size;
   }
