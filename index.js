@@ -76,4 +76,17 @@ class LinkedList {
     --this.#size;
     return node;
   }
+
+  shift() {
+    if (!this.#size) return null;
+    if (this.#size === 1) {
+      const node = this.#head;
+      this.#head = this.#tail = null;
+      return node;
+    }
+    const node = this.#head;
+    this.#head = node.next;
+    --this.#size;
+    return node;
+  }
 }
