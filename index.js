@@ -52,4 +52,14 @@ class LinkedList {
     ++this.#size;
     return this.#size;
   }
+
+  at(index) {
+    if (!this.#size) return null;
+    let node = this.#head;
+    for (let i = 0; i < index; ++i) {
+      if (!node) break;
+      node = node.next;
+    }
+    return node;
+  }
 }
