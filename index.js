@@ -108,6 +108,19 @@ class LinkedList {
     return null;
   }
 
+  insertAt(value, index) {
+    if (index < 0 || index > this.#size) {
+      throw new RangeError('Provided index is out of list bounds');
+    }
+    const node = new Node(value);
+    if (index === 0) return this.unshift(value);
+    const parent = this.at(index - 1);
+    const child = parent.next;
+    parent.next = node;
+    node.next = child;
+    return ++this.#size;
+  }
+
   toString() {
     let output = '';
     let node = this.#head;
