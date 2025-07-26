@@ -40,4 +40,16 @@ class LinkedList {
     ++this.#size;
     return this.#size;
   }
+
+  unshift(value) {
+    const node = new Node(value);
+    if (!this.#size) {
+      this.#head = this.#tail = node;
+    } else {
+      node.next = this.#head;
+      this.#head = node;
+    }
+    ++this.#size;
+    return this.#size;
+  }
 }
